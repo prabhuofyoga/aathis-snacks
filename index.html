@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aathi's Snaacks | Authentic South Tamil Nadu Savories</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --brand-red: #D32F2F;       
+            --brand-yellow: #FFEB3B;    
+            --brand-purple: #673AB7;    
+            --whatsapp-green: #25D366;  
+            --bg-light: #FFF8E1; /* Light cream background for food appeal */
+        }
+
+        /* --- GLOBAL STYLES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Dynamic Font Switching */
+        body.lang-en { font-family: 'Poppins', sans-serif; }
+        body.lang-ta { font-family: 'Baloo Thambi 2', cursive; }
+
+        a { text-decoration: none; }
+
+        /* --- NAVIGATION & TOGGLE --- */
+        nav {
+            background: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            color: var(--brand-red);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* The Switch Container */
+        .lang-switch {
+            display: flex;
+            background: #eee;
+            border-radius: 20px;
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        .lang-option {
+            padding: 5px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lang-option.active {
+            background: var(--brand-purple);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #fff 0%, #fff8e1 100%);
+        }
+
+        .logo-img {
+            max-width: 200px;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            color: var(--brand-red);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* --- PRODUCTS GRID --- */
+        .section-title {
+            text-align: center;
+            color: var(--brand-purple);
+            font-size: 1.8rem;
+            margin: 3rem 0 2rem;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--brand-yellow);
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-body { padding: 1.5rem; }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--brand-red);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
+        }
+
+        /* --- ABOUT US SECTION --- */
+        .about-section {
+            background: white;
+            margin-top: 4rem;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+            font-size: 0.9rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
+</head>
+<body class="lang-en"> <nav>
+        <div class="nav-logo">Aathi's Snaacks</div>
+        <div class="lang-switch">
+            <div class="lang-option active" onclick="setLanguage('en')">English</div>
+            <div class="lang-option" onclick="setLanguage('ta')">தமிழ்</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <img src="logo.png" alt="Aathi's Logo" class="logo-img">
+            
+            <h1 id="hero-title">Authentic South Tamil Nadu Savories</h1>
+            <p class="subtitle" id="hero-subtitle">Handcrafted in Thoothukudi | Delivered to Your Doorstep</p>
+            
+            <a href="#menu" class="btn" style="background: var(--brand-red); display:inline-block; padding: 15px 40px;" id="hero-cta">
+                View Menu
+            </a>
+        </div>
+    </header>
+
+    <div class="container" id="menu">
+        <h2 class="section-title" id="menu-title">Our Specials</h2>
+        
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/300?text=Macaroon" class="card-img" alt="Macaroon">
+                <div class="card-body">
+                    <h3 class="card-title" id="item1-title">Thoothukudi Macaroon</h3>
+                    <p class="card-desc" id="item1-desc">
+                        A colonial legacy. Clouds of cashew and egg whites that melt in your mouth. Unlike the French version, this is airy, crisp, and pure white.
+                    </p>
+                    <a href="https://wa.me/c/YOUR_LINK_HERE" class="btn" id="item1-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300?text=Karupatti+Mittai" class="card-img" alt="Peanut Candy">
+                <div class="card-body">
+                    <h3 class="card-title" id="item2-title">Kovilpatti Karupatti Mittai</h3>
+                    <p class="card-desc" id="item2-desc">
+                        The healthy crunch. Roasted peanuts bound by authentic Palm Jaggery (Karupatti) syrup. No white sugar, just earthy, traditional energy.
+                    </p>
+                    <a href="https://wa.me/c/YOUR_LINK_HERE" class="btn" id="item2-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300?text=Sattur+Sevu" class="card-img" alt="Sattur Sevu">
+                <div class="card-body">
+                    <h3 class="card-title" id="item3-title">Sattur Sevu</h3>
+                    <p class="card-desc" id="item3-desc">
+                        The spicy legend. A crispy snack infused with generous garlic and cumin. The perfect fiery companion for your evening tea.
+                    </p>
+                    <a href="https://wa.me/c/YOUR_LINK_HERE" class="btn" id="item3-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="about-section">
+        <div class="container about-content">
+            <h2 class="section-title" id="about-title">Our Story</h2>
+            <div class="about-text">
+                <p id="about-p1">
+                    Welcome to <strong>Aathi's Snaacks</strong>. We believe food is a memory. It’s the smell of hot oil in a Thoothukudi bakery and the earthy aroma of palm jaggery in Kovilpatti.
+                </p>
+                <p id="about-p2">
+                    In a world of mass-produced snacks, we went back to our roots. We don't just 'make' snacks; we curate heritage. Every packet you open is a tribute to the culinary masters of our hometowns.
+                </p>
+            </div>
+            <br>
+            <a href="https://wa.me/YOUR_MAIN_NUMBER" class="btn" style="background: var(--brand-purple); display:inline-block;" id="about-cta">
+                Chat with Founder
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Aathi's Snaacks. Chennai | Thoothukudi.</p>
+    </footer>
+
+    <script>
+        // Content Database
+        const content = {
+            en: {
+                heroTitle: "Authentic South Tamil Nadu Savories",
+                heroSubtitle: "Handcrafted in Thoothukudi | Delivered to Your Doorstep",
+                heroCta: "View Menu",
+                menuTitle: "Our Specials",
+                
+                // Item 1
+                item1Title: "Thoothukudi Macaroon",
+                item1Desc: "A colonial legacy. Clouds of cashew and egg whites that melt in your mouth. Unlike the French version, this is airy, crisp, and pure white.",
+                item1Btn: "Order on WhatsApp",
+
+                // Item 2
+                item2Title: "Kovilpatti Karupatti Mittai",
+                item2Desc: "The healthy crunch. Roasted peanuts bound by authentic Palm Jaggery (Karupatti) syrup. No white sugar, just earthy, traditional energy.",
+                item2Btn: "Order on WhatsApp",
+
+                // Item 3
+                item3Title: "Sattur Sevu",
+                item3Desc: "The spicy legend. A crispy snack infused with generous garlic and cumin. The perfect fiery companion for your evening tea.",
+                item3Btn: "Order on WhatsApp",
+
+                // About
+                aboutTitle: "Our Story",
+                aboutP1: "Welcome to <strong>Aathi's Snaacks</strong>. We believe food is a memory. It’s the smell of hot oil in a Thoothukudi bakery and the earthy aroma of palm jaggery in Kovilpatti.",
+                aboutP2: "In a world of mass-produced snacks, we went back to our roots. We don't just 'make' snacks; we curate heritage. Every packet you open is a tribute to the culinary masters of our hometowns.",
+                aboutCta: "Chat with Founder"
+            },
+            ta: {
+                heroTitle: "தென் தமிழ்நாட்டின் பாரம்பரிய சுவை",
+                heroSubtitle: "தூத்துக்குடியின் மணம், உங்கள் இல்லம் தேடி!",
+                heroCta: "வகைகளை பார்க்க",
+                menuTitle: "எங்களின் சிறப்புகள்",
+                
+                // Item 1
+                item1Title: "தூத்துக்குடி மக்ரூன்",
+                item1Desc: "வாயில் இட்டதும் கரையும் அற்புதம். முந்திரி பருப்பும், முட்டையின் வெள்ளைக் கருவும் சேர்ந்து செய்யப்படும் ஒரு தனித்துவமான இனிப்பு. இது வெறும் தின்பண்டம் அல்ல, ஒரு வரலாறு.",
+                item1Btn: "வாட்ஸ்அப்பில் ஆர்டர் செய்ய",
+
+                // Item 2
+                item2Title: "கோவில்பட்டி கருப்பட்டி மிட்டாய்",
+                item2Desc: "உடலுக்கு ஆரோக்கியம், நாவிற்கு விருந்து. வெள்ளை சர்க்கரை இல்லாமல், சுத்தமான பனை வெல்லம் (கருப்பட்டி) மற்றும் நிலக்கடலை சேர்த்து செய்யப்படும் பாரம்பரிய மிட்டாய்.",
+                item2Btn: "வாட்ஸ்அப்பில் ஆர்டர் செய்ய",
+
+                // Item 3
+                item3Title: "சாத்தூர் சேவு",
+                item3Desc: "மொறு மொறு காரம்! பூண்டு மற்றும் சீரகத்தின் மணத்துடன், காரசாரமாக இருக்கும் சாத்தூர் சேவு. டீ குடிக்கும் போது சாப்பிட மிகச் சிறந்த ஜோடி.",
+                item3Btn: "வாட்ஸ்அப்பில் ஆர்டர் செய்ய",
+
+                // About
+                aboutTitle: "எங்கள் கதை",
+                aboutP1: "<strong>ஆதி ஸ்நாக்ஸ்</strong> உங்களை அன்புடன் வரவேற்கிறது. உணவு என்பது வெறும் பசி தீர்ப்பது மட்டுமல்ல, அது ஒரு நினைவலை. கோவில்பட்டி கரிசல் மண்ணின் மணமும், தூத்துக்குடி காற்றின் ஈரப்பதமும் எங்கள் சுவையில் இருக்கும்.",
+                aboutP2: "கலப்படமான உணவுகள் நிறைந்த இந்த காலத்தில், நாங்கள் மீண்டும் நம் வேர்களைத் தேடிச் செல்கிறோம். நாங்கள் விற்பது வெறும் தின்பண்டங்கள் அல்ல, நம் முன்னோர்களின் கைமணம். தரமான, சுவையான பாரம்பரிய தின்பண்டங்கள்.",
+                aboutCta: "எங்களுடன் பேச"
+            }
+        };
+
+        function setLanguage(lang) {
+            // 1. Change Body Class (for fonts)
+            document.body.className = 'lang-' + lang;
+
+            // 2. Update Active Toggle State
+            const options = document.querySelectorAll('.lang-option');
+            options.forEach(opt => opt.classList.remove('active'));
+            
+            // Find the button that was clicked (based on text logic for simplicity here)
+            if(lang === 'en') options[0].classList.add('active');
+            else options[1].classList.add('active');
+
+            // 3. Inject Content
+            document.getElementById('hero-title').innerText = content[lang].heroTitle;
+            document.getElementById('hero-subtitle').innerText = content[lang].heroSubtitle;
+            document.getElementById('hero-cta').innerText = content[lang].heroCta;
+            document.getElementById('menu-title').innerText = content[lang].menuTitle;
+
+            // Item 1
+            document.getElementById('item1-title').innerText = content[lang].item1Title;
+            document.getElementById('item1-desc').innerText = content[lang].item1Desc;
+            document.getElementById('item1-btn').innerText = content[lang].item1Btn;
+
+            // Item 2
+            document.getElementById('item2-title').innerText = content[lang].item2Title;
+            document.getElementById('item2-desc').innerText = content[lang].item2Desc;
+            document.getElementById('item2-btn').innerText = content[lang].item2Btn;
+
+            // Item 3
+            document.getElementById('item3-title').innerText = content[lang].item3Title;
+            document.getElementById('item3-desc').innerText = content[lang].item3Desc;
+            document.getElementById('item3-btn').innerText = content[lang].item3Btn;
+
+            // About
+            document.getElementById('about-title').innerText = content[lang].aboutTitle;
+            document.getElementById('about-p1').innerHTML = content[lang].aboutP1; // InnerHTML for bold tags
+            document.getElementById('about-p2').innerHTML = content[lang].aboutP2;
+            document.getElementById('about-cta').innerText = content[lang].aboutCta;
+        }
+    </script>
+</body>
+</html>
