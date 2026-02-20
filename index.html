@@ -524,4 +524,45 @@
                 heroSubtitle: "தூத்துக்குடியின் மணம், உங்கள் இல்லம் தேடி!",
                 heroCta: "வகைகளை பார்க்க",
                 menuTitle: "எங்களின் சிறப்புகள்",
-                b
+                badge1: "முதலிடம்",
+                item1Title: "தூத்துக்குடி மக்ரூன்",
+                item1Desc: "வாயில் இட்டதும் கரையும் அற்புதம். முந்திரி பருப்பும், முட்டையின் வெள்ளைக் கருவும் சேர்ந்து செய்யப்படும் ஒரு தனித்துவமான இனிப்பு.",
+                item1Btn: "வாட்ஸ்அப்பில் வாங்க <span>&rarr;</span>",
+                badge2: "ஆரோக்கியம்",
+                item2Title: "கோவில்பட்டி கருப்பட்டி மிட்டாய்",
+                item2Desc: "வெள்ளை சர்க்கரை இல்லாமல், சுத்தமான பனை வெல்லம் (கருப்பட்டி) மற்றும் நிலக்கடலை சேர்த்து செய்யப்படும் பாரம்பரிய மிட்டாய்.",
+                item2Btn: "வாட்ஸ்அப்பில் வாங்க <span>&rarr;</span>",
+                badge3: "காரம்",
+                item3Title: "சாத்தூர் சேவு",
+                item3Desc: "மொறு மொறு காரம்! பூண்டு மற்றும் சீரகத்தின் மணத்துடன், காரசாரமாக இருக்கும் சாத்தூர் சேவு. டீ குடிக்கும் போது மிகச் சிறந்த ஜோடி.",
+                item3Btn: "வாட்ஸ்அப்பில் வாங்க <span>&rarr;</span>",
+                aboutTitle: "எங்கள் கதை",
+                aboutText: "<strong>ஆதி ஸ்நாக்ஸ்</strong> உங்களை வரவேற்கிறது. உணவு என்பது ஒரு நினைவலை. கோவில்பட்டி கரிசல் மண்ணின் மணமும், தூத்துக்குடி காற்றின் ஈரப்பதமும் எங்கள் சுவையில் இருக்கும். கலப்படமான உணவுகள் நிறைந்த இந்த காலத்தில், நாங்கள் மீண்டும் நம் வேர்களைத் தேடிச் செல்கிறோம். நாங்கள் விற்பது வெறும் தின்பண்டங்கள் அல்ல, நம் முன்னோர்களின் கைமணம்.",
+                aboutCta: "எங்களுடன் பேச",
+                footerText: "&copy; 2026 ஆதி ஸ்நாக்ஸ். பாரம்பரியத்தின் சுவை."
+            }
+        };
+
+        function toggleLanguage() {
+            const newLang = currentLang === 'en' ? 'ta' : 'en';
+            const elements = document.querySelectorAll('.translatable');
+
+            elements.forEach(el => el.classList.add('fade-out'));
+
+            document.getElementById('btn-en').classList.toggle('active');
+            document.getElementById('btn-ta').classList.toggle('active');
+            document.body.className = 'lang-' + newLang;
+
+            setTimeout(() => {
+                for (let key in dictionary[newLang]) {
+                    const el = document.getElementById(key);
+                    if (el) el.innerHTML = dictionary[newLang][key]; 
+                }
+                
+                elements.forEach(el => el.classList.remove('fade-out'));
+                currentLang = newLang;
+            }, 300); 
+        }
+    </script>
+</body>
+</html>
